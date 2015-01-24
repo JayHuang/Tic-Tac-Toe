@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="TTT">
+	<head>
+		<title>Simple Tic Tac Toe Game</title>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body ng-controller="MainCtrl">
+		<h1>Simple Tic Tac Toe Game</h1>
+		<div id="controls">
+			<span>Player turn: </span>
+			<span ng-show="moves % 2 === 0">o</span>
+			<span ng-show="moves % 2 !== 0">x</span>
+			<div class="right" ng-click="resetBoard()">Reset board</div>
+			<h2 ng-show="gameover == true">Game over! Winner: {{winner}}</h2>
+		</div>
+		<div class="clear"></div>
+		<div id="gamearea">
+			<div id="board">
+				<div class="cells" ng-repeat="cell in cells track by $index" ng-click="fillCell($index)">{{cells[$index]}}</div>
+			</div>
+		</div>
+	</body>
+</html>
